@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.box{
+
+
+  background: rgb(132, 253, 132);
+}
+
+/* .layout{
+  display: grid;
+  width: 100%;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1));
+} */
+
+.template{
+  display: grid;
+  grid-template-areas: 
+  'header header'
+  'aside content'
+  'footer footer';
+  /* Без вергула! */
+  grid-template-columns: 254px 1fr;
+ 
+}
+
+.header{
+  grid-area: header;
+}
+
+.aside{
+  grid-area: aside;
+}
+
+.content{
+  grid-area: content;
+}
+
+
+.footer{
+  grid-area: footer;
+}
+
+*{
+  outline: 2px solid black;
+}

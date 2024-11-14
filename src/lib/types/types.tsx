@@ -1,0 +1,3 @@
+interface IDataProduct {
+    id: number;
+}

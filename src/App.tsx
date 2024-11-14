@@ -2,28 +2,22 @@
  //* @format
  */
 
+import Content from "./layouts/Content";
+import Footer from "./layouts/Footer";
+import Header from "./layouts/Header";
+import Navigation from "./layouts/Navigation";
+
 function App() {
   return (
-    <>
+    <main className="container m-auto template gap-y-3 gap-x-12">
+      <Header />
 
-<main className="container m-auto template gap-y-3 gap-x-12">
-<header className="bg-green-400 header">Header</header>
+      <Navigation />
 
-<aside className="bg-green-400 aside">
-  Aside
-  <nav>
-   Nav
-  </nav>
-</aside>
+      <Content />
 
-<section className=" bg-orange-300 content">Content</section>
-
-<footer className="bg-green-400 footer">
-  Footer
-</footer>
-
-</main>
-    </>
+      <Footer />
+    </main>
   );
 }
 

@@ -2,23 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
-.box{
-  background: rgb(132, 253, 132);
-}
+*{
+  outline: 2px solid black;
+} 
 
 
 .template{
   display: grid;
   grid-template-areas: 
-  'header header'
-  'aside content'
-  'footer footer';
+  'content content'
+  'footer  footer';
   grid-template-columns: 254px 1fr;
  
-}
-
-.header{
-  grid-area: header;
 }
 
 .aside{
@@ -34,8 +29,31 @@
   grid-area: footer;
 }
 
-*{
-  outline: 2px solid black;
-}
+
 
 /* NEW */
+
+
+
+.slider {
+  margin:0 20px;
+  overflow:"hidden";
+  padding:2rem 0;
+}
+
+.slider img {
+  width: 100%;
+  border-radius:10px;
+}
+
+.react-multi-carousel-list {
+padding: 0rem 0 2rem 0;
+}
+
+.custom-dot-list-style button{
+border: none;
+background: rgb(255, 68, 68);
+}
+.react-multi-carousel-dot.react-multi-carousel-dot--active button{
+background: rgb(255, 68, 68) !important;
+}

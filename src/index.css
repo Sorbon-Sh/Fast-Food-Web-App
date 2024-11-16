@@ -2,22 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-*{
+ /* *{
   outline: 2px solid black;
-} 
+}  */
 
 
 .template{
   display: grid;
   grid-template-areas: 
+  'header  header'
+  'navigation navigation'
+  'carousel carousel'
   'content content'
   'footer  footer';
-  grid-template-columns: 254px 1fr;
- 
+  grid-template-columns: repeat(1,1fr);
 }
 
-.aside{
-  grid-area: aside;
+
+.header{
+  grid-area: header;
+}
+
+.navigation{
+  grid-area: navigation
+}
+
+.carousel{
+  grid-area: carousel
 }
 
 .content{
@@ -29,14 +40,48 @@
   grid-area: footer;
 }
 
+footer .nav {
+  display: flex;
+  flex-direction: column;
+  row-gap: 9px;
+}
 
+nav img{
+  display: none;
+}
 
-/* NEW */
+nav article ul{
+  display: flex;
+}
 
+footer section{
+  justify-content: space-between;
+}
+
+@media screen and (max-width: 1024px) {
+  
+  .header article {
+  grid-template-columns: 1fr;
+  width: 100%;
+  justify-items: center;
+  row-gap: 15px;
+  }
+  nav article ul{
+    display: none;
+  }
+
+  nav img {
+    display: block;
+  }
+
+  footer section {
+   justify-content: center;
+  }
+}
 
 
 .slider {
-  margin:0 20px;
+  margin:0 10px;
   overflow:"hidden";
   padding:2rem 0;
 }

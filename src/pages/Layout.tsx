@@ -1,14 +1,21 @@
 import { Outlet } from "react-router-dom";
 import Header from "../layouts/Header";
-
+import Navigation from "../layouts/Navigation";
+import Slider from "../layouts/Slider";
+import Footer from "../layouts/Footer";
 
 const Layout = () => {
-    return (
-   <main className="container mx-auto grid">
-   <Header />
-   <Outlet />
-   </main>
-      );
-}
+  return (
+    <main className="container template mx-auto">
+      <Header />
+      {/* Навигация и Слайдер в не Header для postion:sticky (tag main is sticky container) */}
+      <Navigation />
+      <Slider />
+      <Outlet />
 
-export default Layout
+      <Footer />
+    </main>
+  );
+};
+
+export default Layout;

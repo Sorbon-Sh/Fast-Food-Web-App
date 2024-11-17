@@ -2,10 +2,10 @@ import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
-    <header className="header">
-      <article className="grid grid-cols-3 font-medium gap-x-10 w-fit pt-6 pb-4 justify-between ">
+    <header className="header flex -md:justify-center ">
+      <article className="grid grid-cols-3 gap-x-10 -md:grid-cols-1 -md:w-full w-fit justify-between  font-medium  pt-6 pb-4 ">
         <Link to="/">
-          <div className="h-12 w-60">
+          <div className="">
             <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247 46">
               <path d="M238 14.4a9.2 9.2 0 0 1-2.55-.33l2.49-5.55 2.49 5.55a8.3 8.3 0 0 1-2.44.33Zm8.81 4.22-5.86-12.69a3 3 0 0 0-2.88-2h-.22a3 3 0 0 0-2.94 2l-5.82 12.71a2 2 0 0 0 3.22 2.44 2 2 0 0 0 .43-.67l1.33-2.79a13.3 13.3 0 0 0 4 .61 11.3 11.3 0 0 0 3.82-.58l1.28 2.79a2 2 0 0 0 2.66 1.05 2 2 0 0 0 .93-2.83Zm-21-1.12h-1.11V5.82a2.05 2.05 0 0 0-2.14-2.1 2 2 0 0 0-2.11 2.11v11.65H213V5.82a2.16 2.16 0 1 0-4.32 0v13.69a2 2 0 0 0 2.11 2.11h12.91v1.89a2 2 0 0 0 2.11 2.11 2 2 0 0 0 2-1.28 2 2 0 0 0 .12-.83v-3.93a1.92 1.92 0 0 0-2.11-2.11Zm-21.48 0h-1.11V5.82a2.05 2.05 0 0 0-2.22-2.1 2 2 0 0 0-2.11 2.11v11.65h-7.42V5.82a2.16 2.16 0 1 0-4.32 0v13.69a2 2 0 0 0 2.11 2.11h12.91v1.89a2 2 0 0 0 2.11 2.11 2 2 0 0 0 2.11-2.11v-3.93a1.92 1.92 0 0 0-2.07-2.1Zm-23.9-13.62h-.17c-1.28 0-2.11.61-3 1.89l-7 9.93V6a2.09 2.09 0 1 0-4.18 0v13.2a2.24 2.24 0 0 0 2.38 2.39h.22a3.53 3.53 0 0 0 3-1.89l7-9.93v9.71a2.05 2.05 0 1 0 4.1 0V6.27a2.23 2.23 0 0 0-2.44-2.39Zm-20.87 0h-12A2 2 0 0 0 145.48 6v13.7a2.05 2.05 0 0 0 .62 1.53 2 2 0 0 0 1.54.58 2 2 0 0 0 2.11-2.11V8h7.65v11.7a2 2 0 0 0 2.16 2.11 2.07 2.07 0 0 0 2.16-2.17V5.93a2 2 0 0 0-2.16-2.05m-30.95 13.87a4.74 4.74 0 0 1-4.82-5 4.75 4.75 0 0 1 4.82-4.94 4.72 4.72 0 0 1 4.82 4.94 4.73 4.73 0 0 1-4.82 5m0-14a8.89 8.89 0 0 0-9.09 9 8.85 8.85 0 0 0 9.09 9 9 9 0 0 0 9.09-9.1 8.87 8.87 0 0 0-9.09-8.88Zm-17.46 13.73h-7a13.6 13.6 0 0 0 1.05-3 25 25 0 0 0 .46-4.39l.11-2.09h5.43Zm5.38 0h-1.11V6a2 2 0 0 0-.13-.82 2 2 0 0 0-2-1.29h-9.81A1.88 1.88 0 0 0 101.57 6v2.78a25.6 25.6 0 0 1-.41 5.2 8.6 8.6 0 0 1-1.39 3.49h-.47a1.91 1.91 0 0 0-2.05 2.11v3.94a2 2 0 0 0 2.11 2.11 2 2 0 0 0 2.11-2.11v-1.88h12.91v1.89a2 2 0 0 0 2.09 2.11 2 2 0 0 0 2.11-2.11v-3.95a1.86 1.86 0 0 0-2.05-2.11Zm-28.77.28a4.74 4.74 0 0 1-4.82-5 4.82 4.82 0 1 1 9.64 0 4.7 4.7 0 0 1-4.82 4.99Zm0-14a8.89 8.89 0 0 0-9.09 9 8.84 8.84 0 0 0 9.1 9 9 9 0 0 0 9.09-9.1 8.8 8.8 0 0 0-9.09-9ZM70.2 17.45h-7a13.5 13.5 0 0 0 1.05-3 25 25 0 0 0 .46-4.39L64.82 8h5.43Zm5.38 0h-1.11V6a2 2 0 0 0-2.11-2.11h-9.8A1.88 1.88 0 0 0 60.62 6v2.78a22 22 0 0 1-.39 5.22 8.6 8.6 0 0 1-1.39 3.49h-.47a1.91 1.91 0 0 0-2.05 2.11v3.94a2 2 0 0 0 2.15 2.1 2 2 0 0 0 2.11-2.11v-1.89h12.91v1.89a2 2 0 0 0 2.11 2.11 2 2 0 0 0 2.11-2.11v-3.95a1.92 1.92 0 0 0-2.11-2.11"></path>
               <path
@@ -21,14 +21,16 @@ const Header = () => {
             </svg>
           </div>
         </Link>
-        <div className="flex flex-col">
-          <span className="text-lg">
+        <div className="flex flex-col -md:text-center">
+          <span className="text-lg -md:text-3xl -md:my-4">
             Доставка пиццы
-            <span className="text-orange-500 ml-1">Душанбе</span>
+            <span className="text-orange-500 ml-1 -md:ml-0 -md:block">
+              Душанбе
+            </span>
           </span>
-          <span className="flex">
+          <div className="flex -md:text-2xl -md:justify-center">
             30 мин
-            <div className="flex ml-3">
+            <span className="flex ml-3">
               <span>4.79</span>
               <span className="self-center ml-1">
                 <svg
@@ -55,11 +57,11 @@ const Header = () => {
                   ></path>
                 </svg>
               </span>
-            </div>
-          </span>
+            </span>
+          </div>
         </div>
-        <div className="flex flex-col">
-          <span className="text-lg">6600</span>
+        <div className="flex flex-col -md:text-2xl -md:text-center ">
+          <span className="text-lg -md:text-2xl">6600</span>
           <span className="text-slate-400">Звонок по телефону</span>
         </div>
       </article>

@@ -3,10 +3,11 @@ import Header from "../layouts/Header";
 import Navigation from "../layouts/Navigation";
 import Slider from "../layouts/Slider";
 import Footer from "../layouts/Footer";
+import Container from "../components/Container";
 
 const Layout = () => {
   return (
-    <main className="container template mx-auto">
+    <Container>
       <Header />
       {/* Навигация и Слайдер в не Header для postion:sticky (tag main is sticky container) */}
       <Navigation />
@@ -14,7 +15,7 @@ const Layout = () => {
       <Outlet />
 
       <Footer />
-    </main>
+    </Container>
   );
 };
 

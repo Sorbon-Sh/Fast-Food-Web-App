@@ -2,103 +2,67 @@
 @tailwind components;
 @tailwind utilities;
 
- /* *{
-  outline: 2px solid black;
-}  */
+/* * {
+  outline: 2px solid orange ;
+} */
 
-
-.template{
+.template {
   display: grid;
-  grid-template-areas: 
-  'header  header'
-  'navigation navigation'
-  'carousel carousel'
-  'content content'
-  'footer  footer';
-  grid-template-columns: repeat(1,1fr);
+  grid-template-areas:
+    "header  header"
+    "navigation navigation"
+    "carousel carousel"
+    "content content"
+    "footer  footer";
+  grid-template-columns: repeat(1, 1fr);
 }
 
-
-.header{
+.header {
   grid-area: header;
 }
 
-.navigation{
-  grid-area: navigation
+.navigation {
+  grid-area: navigation;
 }
 
-.carousel{
-  grid-area: carousel
+.carousel {
+  grid-area: carousel;
 }
 
-.content{
+.content {
   grid-area: content;
 }
 
-
-.footer{
+.footer {
   grid-area: footer;
 }
 
-footer .nav {
-  display: flex;
-  flex-direction: column;
-  row-gap: 9px;
-}
 
-nav img{
-  display: none;
-}
 
-nav article ul{
-  display: flex;
-}
 
-footer section{
-  justify-content: space-between;
-}
 
-@media screen and (max-width: 1024px) {
-  
-  .header article {
-  grid-template-columns: 1fr;
-  width: 100%;
-  justify-items: center;
-  row-gap: 15px;
-  }
-  nav article ul{
-    display: none;
-  }
 
-  nav img {
-    display: block;
-  }
-
-  footer section {
-   justify-content: center;
-  }
-}
-
+/* ============================================================== */
 
 .slider {
-  margin:0 10px;
-  overflow:"hidden";
-  padding:2rem 0;
+  margin: 0 10px;
+  overflow: "hidden";
+  padding: 2rem 0;
 }
 
 .slider img {
   width: 100%;
-  border-radius:10px;
+  border-radius: 10px;
 }
 
 .react-multi-carousel-list {
-padding: 0rem 0 2rem 0;
+  padding: 0rem 0 2rem 0;
 }
 
-.custom-dot-list-style button{
-border: none;
-background: rgb(255, 68, 68);
+.custom-dot-list-style button {
+  border: none;
+  background: rgb(255, 68, 68);
 }
-.react-multi-carousel-dot.react-multi-carousel-dot--active button{
-background: rgb(255, 68, 68) !important;
+.react-multi-carousel-dot.react-multi-carousel-dot--active button {
+  background: rgb(255, 68, 68) !important;
 }

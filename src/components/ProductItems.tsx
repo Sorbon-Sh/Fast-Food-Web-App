@@ -2,10 +2,11 @@ const ProductItems = () => {
   return (
     <div className=" p-4 bg-white rounded-lg shadow-md transform hover:scale-105 transition-transform duration-300 ease-in-out">
       <img
-        className="w-full h-40 object-cover rounded-t-lg"
+        className="w-full h-40 -lg:h-52  -sm-table:h-72 -sm-mobile:h-52  object-cover rounded-t-lg"
         alt="Card Image"
         src=""
       />
+      {/* -sm-table:h-64 -sm-mobile:h-52 -lg:h-52 */}
       <div className="p-4">
         <h2 className="text-xl  font-semibold">Beautiful Card</h2>
         <p className="text-gray-600">

@@ -3,7 +3,7 @@
 @tailwind utilities;
 
 /* * {
-  outline: 2px solid orange ;
+  outline: 2px solid black;
 } */
 
 .template {
@@ -14,7 +14,6 @@
     "carousel carousel"
     "content content"
     "footer  footer";
-  grid-template-columns: repeat(1, 1fr);
 }
 
 .header {

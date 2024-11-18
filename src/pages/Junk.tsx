@@ -10,26 +10,27 @@ const Junk = () => {
         <span className="font-medium text-xl [&>span]:ml-2">
           Итог:<span>100</span>
         </span>
-        <Button style="ml-10">Заказать все</Button>
+        <Button style="ml-10 px-5 py-3">Заказать все</Button>
       </div>
       <article className="border-2 ">
         <img src={deleteIcon} alt="Удалить" className="w-14 p-2 ml-auto" />
         <div
           className=" min-h-40 flex justify-between
-      -sm:flex-col
+      -lg:flex-col
        [&>*]:w-96 
-      -sm:[&>*]:w-full
-      -sm:[&>*]:text-center
-      -sm:gap-y-5
+      -lg:[&>*]:w-full
+      -lg:[&>*]:text-center
+      -lg:gap-y-5
       "
         >
           <div className="">Image</div>
           <div className="">
             <div className="mb-2">Price</div>
-            Description
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi,
+            iure.
           </div>
           <div className="">
-            <NumberOfOrders style="-sm:mx-auto" />
+            <NumberOfOrders style="-lg:mx-auto" />
           </div>
         </div>
       </article>

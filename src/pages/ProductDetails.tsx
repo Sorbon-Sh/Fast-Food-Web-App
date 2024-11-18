@@ -1,4 +1,5 @@
 import NumberOfOrders from "../components/NumberOfOrders";
+import SizeChoice from "../components/SizeChoice";
 
 const ProductDetails = () => {
   return (
@@ -7,19 +8,24 @@ const ProductDetails = () => {
         <div className="row-start-1 row-end-3 text-center -lg:row-start-2">
           Image
         </div>
-        <div className=" flex justify-between -sm-table:flex-col -sm-table:text-center">
-          <div className=" flex flex-col pl-5 -sm-table:p-0">
+        <div className=" flex justify-between -sm-table:flex-col -sm-table:text-center -xl:flex-col">
+          <div className=" flex flex-col pl-5 -sm-table:p-0 -xl:pb-3">
             <h4 className="text-3xl mb-4">Title</h4>
             <span className="text-2xl mb-6">
               Price<sup className="text-sm">SM</sup>
             </span>
-            <span>Description</span>
+            <span>
+              Lorem ipsum dolor sit amet consectetur adipisicing elit.
+              Consequuntur, ex!
+            </span>
           </div>
-          <div className="border-2 rounded-md -sm-table:my-5">
-            <div className="w-72 pl-9 -sm-table:p-0 -sm-table:w-full">
+
+          <div className="border-2 flex flex-col rounded-md -sm-table:my-5">
+            <SizeChoice />
+            <div className="w-72 -xl:w-full -sm-table:p-0 text-center -sm-table:w-full">
               <span>Доставка:</span>
               <span className="text-green-500 font-medium pl-1">1 час</span>
-              <NumberOfOrders style="-sm-table:mx-auto" />
+              <NumberOfOrders style="mx-auto" />
             </div>
           </div>
         </div>

@@ -14,7 +14,7 @@ const Navigation = () => {
     "Любят дети",
   ];
   return (
-    <nav className="bg-white bg-opacity-90 backdrop-blur-sm navigation sticky top-0 z-20">
+    <nav className="bg-white bg-opacity-90 backdrop-blur-sm navigation sticky top-0 z-10">
       <article className="flex justify-between align-middle">
         <div className="relative hidden -md:block">
           <img

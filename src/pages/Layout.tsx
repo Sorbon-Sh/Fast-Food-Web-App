@@ -13,7 +13,6 @@ const Layout = () => {
       <Navigation />
       <Slider />
       <Outlet />
-
       <Footer />
     </Container>
   );

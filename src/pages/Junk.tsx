@@ -12,29 +12,25 @@ const Junk = () => {
         </span>
         <Button style="ml-10">Заказать все</Button>
       </div>
-      <article
-        className=" min-h-40 flex justify-between  border-2 
-        relative
+      <article className="border-2 ">
+        <img src={deleteIcon} alt="Удалить" className="w-14 p-2 ml-auto" />
+        <div
+          className=" min-h-40 flex justify-between
       -sm:flex-col
        [&>*]:w-96 
       -sm:[&>*]:w-full
       -sm:[&>*]:text-center
       -sm:gap-y-5
       "
-      >
-        <div className="">Image</div>
-        <div className="">
-          <div className="mb-2">Price</div>
-          Description
-        </div>
-        <div className="">
-          <img
-            src={deleteIcon}
-            alt="Удалить"
-            className="w-14 absolute right-0 p-2 z-10 -md:bottom-0 "
-          />
-
-          <NumberOfOrders style="-sm:mx-auto" />
+        >
+          <div className="">Image</div>
+          <div className="">
+            <div className="mb-2">Price</div>
+            Description
+          </div>
+          <div className="">
+            <NumberOfOrders style="-sm:mx-auto" />
+          </div>
         </div>
       </article>
     </section>

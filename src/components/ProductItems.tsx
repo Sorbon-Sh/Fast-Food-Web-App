@@ -6,7 +6,6 @@ const ProductItems = () => {
         alt="Card Image"
         src=""
       />
-      {/* -sm-table:h-64 -sm-mobile:h-52 -lg:h-52 */}
       <div className="p-4">
         <h2 className="text-xl  font-semibold">Beautiful Card</h2>
         <p className="text-gray-600">

@@ -3,7 +3,7 @@ import SizeChoice from "../components/SizeChoice";
 
 const ProductDetails = () => {
   return (
-    <section className="content">
+    <section className="content ">
       <article className="grid grid-cols-2 grid-rows-2 -lg:grid-cols-1 ">
         <div className="row-start-1 row-end-3 text-center -lg:row-start-2">
           Image
@@ -24,7 +24,7 @@ const ProductDetails = () => {
             <SizeChoice />
             <div className="w-72 -xl:w-full -sm-table:p-0 text-center -sm-table:w-full">
               <span>Доставка:</span>
-              <span className="text-green-500 font-medium pl-1">1 час</span>
+              <span className="text-green-500 font-medium pl-1 ">1 час</span>
               <NumberOfOrders style="mx-auto" />
             </div>
           </div>

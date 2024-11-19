@@ -2,6 +2,16 @@ import Button from "../components/buttons/Button";
 import NumberOfOrders from "../components/NumberOfOrders";
 import deleteIcon from "../assets/delete.png";
 
+// Example with responsive -lg:[&>*]:text-center,
+// Минус такого подхода в том что пробелы нужно делать в нижнем почеркивании (_) в квадратных скобках
+// Иначе работать не будет
+// -lg:[&>article+div]:text-center  -lg:[&>*]:text-center
+// -lg:[&>article:nth-child()]:text-center and e,t,c
+
+// Можно делать так:
+//  1) -lg:[&>*:nth-child()]: и написать так несколь что не было длинно для пробелов
+//  2) написать свой @layer components и добавить .nameClass{ @applay стили tailwindcss... } и целом сокрашение классов в JSX
+
 const Junk = () => {
   return (
     <section className="content grid grid-cols-1">

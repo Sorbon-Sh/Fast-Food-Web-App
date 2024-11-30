@@ -1,17 +1,18 @@
-import { Link } from "react-router-dom";
-import ProductItems from "../components/ProductItems";
-import { useSelector } from "react-redux";
-import { useGetPizzaQuery } from "../lib/RTKQuery/getProductById";
-import { RootState } from "../lib/store";
-import Loader from "../components/Loader";
-
 //* State managment TODO
+
+import { Link } from "react-router-dom";
+import ProductItems from "../../components/ProductItems";
+import Loader from "../../components/Loader";
+import { useGetPizzaQuery } from "../../lib/RTKQuery/getProductById";
+import { RootState } from "../../lib/store";
+import { useSelector } from "react-redux";
+
 //? End points!
-const Content = () => {
+const Drinks = () => {
+  //* SetState
   const point = useSelector((state: RootState) => state.productData.value);
   console.log(point);
-
-  const { data: product } = useGetPizzaQuery(point);
+  const { data: product } = useGetPizzaQuery("drinks");
 
   return (
     <section
@@ -43,4 +44,4 @@ const Content = () => {
   );
 };
 
-export default Content;
+export default Drinks;

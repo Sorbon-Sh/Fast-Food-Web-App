@@ -16,11 +16,11 @@ const Junk = () => {
   return (
     <section className="content grid grid-cols-1">
       <h1 className="text-center font-medium text-4xl mb-20">Корзина</h1>
-      <div className="mb-5">
-        <span className="font-medium text-xl [&>span]:ml-2">
+      <div className="mb-5 flex -md:justify-between">
+        <span className="font-medium text-xl self-center  [&>span]:ml-2 ">
           Итог:<span>100</span>
         </span>
-        <Button style="ml-10 px-5 py-3">Заказать все</Button>
+        <Button style="ml-10 px-5 py-3 -md:ml-0">Заказать все</Button>
       </div>
       <article className="border-2 ">
         <img src={deleteIcon} alt="Удалить" className="w-14 p-2 ml-auto" />
@@ -34,7 +34,7 @@ const Junk = () => {
       "
         >
           <div className="">Image</div>
-          <div className="">
+          <div className="px-3">
             <div className="mb-2">Price</div>
             Lorem ipsum dolor, sit amet consectetur adipisicing elit. Commodi,
             iure.

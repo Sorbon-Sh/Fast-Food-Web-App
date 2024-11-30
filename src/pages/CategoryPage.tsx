@@ -1,29 +1,23 @@
-import { Link } from "react-router-dom";
-import ProductItems from "../components/ProductItems";
 import { useSelector } from "react-redux";
 import { useGetPizzaQuery } from "../lib/RTKQuery/getProductById";
 import { RootState } from "../lib/store";
-import Loader from "../components/Loader";
+import ProductItems from "../components/ProductItems";
 
-//* State managment TODO
-//? End points!
-const Content = () => {
-  const point = useSelector((state: RootState) => state.productData.value);
-  console.log(point);
-
-  const { data: product } = useGetPizzaQuery(point);
-
+const CategoryPage = () => {
+  const otherData = useSelector((state: RootState) => state.productData.value);
+  const { data: other } = useGetPizzaQuery(otherData);
+  console.log(otherData);
   return (
     <section
       className=" grid 
     -2xl:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
+
     -md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]
     -sm-table:grid-cols-1
      gap-y-5 gap-x-4"
     >
-      {product ? (
-        product.map((elem, index) => (
-          <Link to={`/product/:${index}`}>
+      {other
+        ? other.map((elem) => (
             <ProductItems
               key={elem.id}
               id={elem.id}
@@ -34,13 +28,10 @@ const Content = () => {
               size={elem.size}
               description={elem.description}
             />
-          </Link>
-        ))
-      ) : (
-        <Loader />
-      )}
+          ))
+        : "Loading..."}
     </section>
   );
 };
 
-export default Content;
+export default CategoryPage;

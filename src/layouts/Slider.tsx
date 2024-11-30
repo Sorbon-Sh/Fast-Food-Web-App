@@ -23,6 +23,7 @@ const responsive = {
     slidesToSlide: 1, // optional, default to 1.
   },
 };
+
 const sliderImageUrl = [
   //First image url
   {

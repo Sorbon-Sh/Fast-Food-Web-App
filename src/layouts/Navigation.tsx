@@ -2,29 +2,101 @@ import { Link } from "react-router-dom";
 import Button from "../components/buttons/Button";
 import burger from "../assets/icon-menu.png";
 import closeIcon from "../assets/icon-close.png";
-import { MouseEvent, useState } from "react";
+import { useState } from "react";
+import { useDispatch } from "react-redux";
+import { endpoint } from "../lib/slices/grudSupabase";
+
 const Navigation = () => {
   const [show, setShow] = useState(false);
-
-  // const closeNav = (event: MouseEvent) => {
-  //   event.stopPropagation();
-
-  //   setShow(!show);
-  // };
-
+  // const { category } = useParams();
+  const dispatch = useDispatch();
+  //* Временный
   const navItems = [
     "Питца",
     "Комбо",
     "Закуски",
     "Десерты",
     "Напитки",
-    "Сиоусы",
+    "Соусы",
     "Любят дети",
   ];
+
   return (
     <>
       <nav className="bg-white bg-opacity-90 backdrop-blur-sm navigation sticky top-0 z-10 -md:static">
         <article className="flex justify-between align-middle">
+          <ul className="flex -md:hidden ">
+            {/* {navItems.map((elem, index) => (
+              <Link to={`/categories/:${index}`}>
+                <li key={elem} className="navItems" onClick={dispatch(pizza())}>
+                  {elem}
+                </li>
+              </Link>
+            ))} */}
+
+            {/* 
+          //* Создаем значение для State для endpoit - тов
+             */}
+            <Link to="/">
+              <li
+                className="navItems"
+                onClick={() => dispatch(endpoint("pizza"))}
+              >
+                Питца
+              </li>
+            </Link>
+            <Link to="combo">
+              <li
+                className="navItems"
+                onClick={() => dispatch(endpoint("combo"))}
+              >
+                Комбо
+              </li>
+            </Link>
+            <Link to="snacks">
+              <li
+                className="navItems"
+                onClick={() => dispatch(endpoint("snacks"))}
+              >
+                Закуски
+              </li>
+            </Link>
+            <Link to="deserty">
+              <li
+                className="navItems"
+                onClick={() => dispatch(endpoint("deserty"))}
+              >
+                Десерты
+              </li>
+            </Link>
+            <Link to="drinks">
+              <li
+                className="navItems"
+                onClick={() => dispatch(endpoint("drinks"))}
+              >
+                Напитки
+              </li>
+            </Link>
+            <Link to="sauces">
+              <li
+                className="navItems"
+                onClick={() => dispatch(endpoint("sauces"))}
+              >
+                Соусы
+              </li>
+            </Link>
+            <Link to="kidsLike">
+              <li
+                className="navItems"
+                onClick={() => dispatch(endpoint("kidsLike"))}
+              >
+                Любят дети
+              </li>
+            </Link>
+          </ul>
+          <Link to={"/junk"} className="self-center">
+            <Button style="py-2 px-5  rounded-3xl">Корзина</Button>
+          </Link>
           <div className=" hidden -md:block ">
             <img
               src={burger}
@@ -32,19 +104,6 @@ const Navigation = () => {
               onClick={() => setShow(!show)}
             />
           </div>
-          <ul className="flex -md:hidden">
-            {navItems.map((elem, index) => (
-              <li
-                className="pr-5 py-5 hover:text-orange-400 hover:transition-all font-medium hover:cursor-pointer "
-                key={index}
-              >
-                {elem}
-              </li>
-            ))}
-          </ul>
-          <Link to={"/junk"} className="self-center">
-            <Button style="py-2 px-5  rounded-3xl">Корзина</Button>
-          </Link>
         </article>
       </nav>
       <div
@@ -64,8 +123,11 @@ const Navigation = () => {
             className="size-12 ml-auto mb-3 cursor-pointer"
           />
           <ul>
-            {navItems.map((elem) => (
-              <li className="py-5 hover:text-orange-400 hover:transition-all">
+            {navItems.map((elem, index) => (
+              <li
+                className="py-5 hover:text-orange-400 hover:transition-all"
+                key={index}
+              >
                 {elem}
               </li>
             ))}

@@ -22,11 +22,11 @@ const ErrorPage = () => {
           ></path>
         </svg>
       </div>
-      <p className="mt-4 text-gray-600 text-xl">
+      <p className="mt-4 text-xl text-gray-600">
         Let's get you back to
         <Link
           to="/"
-          className="text-white ml-2 bg-orange-400 px-4 py-2 rounded-3xl"
+          className="ml-2 rounded-3xl bg-orange-400 px-4 py-2 text-white"
         >
           <span>Home Page</span>
         </Link>

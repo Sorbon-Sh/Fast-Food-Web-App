@@ -12,27 +12,19 @@ import deleteIcon from "../assets/delete.png";
 //  1) -lg:[&>*:nth-child()]: и написать так несколь что не было длинно для пробелов
 //  2) написать свой @layer components и добавить .nameClass{ @applay стили tailwindcss... } и целом сокрашение классов в JSX
 
-const Junk = () => {
+const CartPage = () => {
   return (
     <section className="content grid grid-cols-1">
-      <h1 className="text-center font-medium text-4xl mb-20">Корзина</h1>
+      <h1 className="mb-20 text-center text-4xl font-medium">Корзина</h1>
       <div className="mb-5 flex -md:justify-between">
-        <span className="font-medium text-xl self-center  [&>span]:ml-2 ">
+        <span className="self-center text-xl font-medium [&>span]:ml-2">
           Итог:<span>100</span>
         </span>
         <Button style="ml-10 px-5 py-3 -md:ml-0">Заказать все</Button>
       </div>
-      <article className="border-2 ">
-        <img src={deleteIcon} alt="Удалить" className="w-14 p-2 ml-auto" />
-        <div
-          className=" min-h-40 flex justify-between
-      -lg:flex-col
-       [&>*]:w-96 
-      -lg:[&>*]:w-full
-      -lg:[&>*]:text-center
-      -lg:gap-y-5
-      "
-        >
+      <article className="border-2">
+        <img src={deleteIcon} alt="Удалить" className="ml-auto w-14 p-2" />
+        <div className="flex min-h-40 justify-between -lg:flex-col -lg:gap-y-5 [&>*]:w-96 -lg:[&>*]:w-full -lg:[&>*]:text-center">
           <div className="">Image</div>
           <div className="px-3">
             <div className="mb-2">Price</div>
@@ -48,4 +40,4 @@ const Junk = () => {
   );
 };
 
-export default Junk;
+export default CartPage;

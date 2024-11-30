@@ -23,9 +23,9 @@ const Navigation = () => {
 
   return (
     <>
-      <nav className="bg-white bg-opacity-90 backdrop-blur-sm navigation sticky top-0 z-10 -md:static">
+      <nav className="navigation sticky top-0 z-10 bg-white bg-opacity-90 backdrop-blur-sm -md:static">
         <article className="flex justify-between align-middle">
-          <ul className="flex -md:hidden ">
+          <ul className="flex -md:hidden">
             {/* {navItems.map((elem, index) => (
               <Link to={`/categories/:${index}`}>
                 <li key={elem} className="navItems" onClick={dispatch(pizza())}>
@@ -97,30 +97,24 @@ const Navigation = () => {
           <Link to={"/junk"} className="self-center">
             <Button style="py-2 px-5  rounded-3xl">Корзина</Button>
           </Link>
-          <div className=" hidden -md:block ">
+          <div className="hidden -md:block">
             <img
               src={burger}
-              className="h-14 border-2 border-orange-400 rounded-lg cursor-pointer "
+              className="h-14 cursor-pointer rounded-lg border-2 border-orange-400"
               onClick={() => setShow(!show)}
             />
           </div>
         </article>
       </nav>
       <div
-        className={` 
-      w-32 absolute bg-slate-400 z-50 
-      text-center bg-opacity-90 
-      backdrop-blur-sm ${show ? "block" : "hidden"}
-      w-full  h-full top-[49%] left-2/4 
-    -translate-x-2/4 -translate-y-2/4
-      `}
+        className={`absolute z-50 w-32 bg-slate-400 bg-opacity-90 text-center backdrop-blur-sm ${show ? "block" : "hidden"} left-2/4 top-[49%] h-full w-full -translate-x-2/4 -translate-y-2/4`}
       >
-        <div className="mt-44 max-w-96 bg-white p-2  mx-auto rounded-lg">
+        <div className="mx-auto mt-44 max-w-96 rounded-lg bg-white p-2">
           <img
             src={closeIcon}
             alt="Закрыть"
             onClick={() => setShow(!show)}
-            className="size-12 ml-auto mb-3 cursor-pointer"
+            className="mb-3 ml-auto size-12 cursor-pointer"
           />
           <ul>
             {navItems.map((elem, index) => (

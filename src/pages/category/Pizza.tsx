@@ -4,27 +4,16 @@ import { Link } from "react-router-dom";
 import ProductItems from "../../components/ProductItems";
 import Loader from "../../components/Loader";
 import { useGetPizzaQuery } from "../../lib/RTKQuery/getProductById";
-import { RootState } from "../../lib/store";
-import { useSelector } from "react-redux";
 
 //? End points!
-const Pizza = () => {
-  const point = useSelector((state: RootState) => state.productData.value);
-  console.log(point);
-
+const PizzaPage = () => {
   const { data: product } = useGetPizzaQuery("pizza");
 
   return (
-    <section
-      className=" grid 
-    -2xl:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
-    -md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]
-    -sm-table:grid-cols-1
-     gap-y-5 gap-x-4"
-    >
+    <section className="grid gap-x-4 gap-y-5 -2xl:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] -md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] -sm-table:grid-cols-1">
       {product ? (
         product.map((elem, index) => (
-          <Link to={`/product/:${index}`}>
+          <Link to={`/product/${index}`}>
             <ProductItems
               key={elem.id}
               id={elem.id}
@@ -44,4 +33,4 @@ const Pizza = () => {
   );
 };
 
-export default Pizza;
+export default PizzaPage;

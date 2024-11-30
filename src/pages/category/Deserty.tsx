@@ -8,19 +8,13 @@ import { RootState } from "../../lib/store";
 import { useSelector } from "react-redux";
 
 //? End points!
-const Deserty = () => {
+const DessertsPage = () => {
   const point = useSelector((state: RootState) => state.productData.value);
   console.log(point);
   const { data: product } = useGetPizzaQuery("deserty");
 
   return (
-    <section
-      className=" grid 
-    -2xl:grid-cols-[repeat(auto-fill,minmax(300px,1fr))]
-    -md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))]
-    -sm-table:grid-cols-1
-     gap-y-5 gap-x-4"
-    >
+    <section className="grid gap-x-4 gap-y-5 -2xl:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] -md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] -sm-table:grid-cols-1">
       {product ? (
         product.map((elem, index) => (
           <Link to={`/product/:${index}`}>
@@ -43,4 +37,4 @@ const Deserty = () => {
   );
 };
 
-export default Deserty;
+export default DessertsPage;

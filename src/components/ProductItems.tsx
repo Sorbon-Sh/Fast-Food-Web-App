@@ -7,21 +7,21 @@ const ProductItems = ({
   description,
 }: IDataSupabase) => {
   return (
-    <div className=" p-4 bg-white rounded-lg shadow-md h-full flex flex-col   transform hover:scale-105 transition-transform duration-300 ease-in-out">
+    <div className="flex h-full transform flex-col rounded-lg bg-white p-4 shadow-md transition-transform duration-300 ease-in-out hover:scale-105">
       <img
-        className="w-auto -lg:h-52 object-contain  -sm-table:h-72 -sm-mobile:h-52  rounded-t-lg"
+        className="w-auto rounded-t-lg object-contain -lg:h-52 -sm-table:h-72 -sm-mobile:h-52"
         alt="Card Image"
         src={imgLink}
       />
 
-      <div className="p-4  flex flex-col h-full justify-between">
+      <div className="flex h-full flex-col justify-between p-4">
         <p className="text-gray-600">
-          <h2 className="text-xl mb-2 font-semibold text-black">{title}</h2>
+          <h2 className="mb-2 text-xl font-semibold text-black">{title}</h2>
           {description}
         </p>
-        <div className="flex justify-between items-center mt-4">
+        <div className="mt-4 flex items-center justify-between">
           <div>{price["25"] || price},00 см</div>
-          <button className="bg-orange-100 hover:bg-orange-200 text-orange-500 px-4 py-2 rounded-full focus:outline-none focus:ring-2 focus:ring-blue-400">
+          <button className="rounded-full bg-orange-100 px-4 py-2 text-orange-500 hover:bg-orange-200 focus:outline-none focus:ring-2 focus:ring-blue-400">
             Заказать
           </button>
         </div>

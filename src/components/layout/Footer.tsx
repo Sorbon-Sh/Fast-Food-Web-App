@@ -1,21 +1,13 @@
-import facebook from "../assets/icon-facebook.png";
-import instagram from "../assets/iconinstagram.png";
-import Container from "../components/Container";
+import facebook from "@/assets/icon-facebook.png";
+import instagram from "@/assets/iconinstagram.png";
+import Container from "@/components/Container";
 
 const Footer = () => {
   return (
-    <footer className="bg-black py-8 px-4 footer mt-10">
+    <footer className="footer mt-10 bg-black px-4 py-8">
       <Container>
         <section className="flex justify-between -md:flex-col">
-          <article
-            className="flex gap-x-7
-          -sm-table:flex-col -sm-table:text-center
-          -md:justify-center
-         [&>ul>*:nth-child(1)]:text-white
-         [&>ul>*:nth-child(n+2)]:text-slate-300
-         [&>ul]:mb-4
-          "
-          >
+          <article className="flex gap-x-7 -md:justify-center -sm-table:flex-col -sm-table:text-center [&>ul>*:nth-child(1)]:text-white [&>ul>*:nth-child(n+2)]:text-slate-300 [&>ul]:mb-4">
             <ul>
               <li>Дода Пицца</li>
               <li>
@@ -60,7 +52,7 @@ const Footer = () => {
           </article>
 
           <ul className="text-end -md:text-center">
-            <li className="flex justify-end -md:flex-col -md:items -md:items-center -md:gap-y-3 gap-x-2 mb-4">
+            <li className="-md:items mb-4 flex justify-end gap-x-2 -md:flex-col -md:items-center -md:gap-y-3">
               {/* Для больших проектов таким кода пользоваться не надо!!! Используйте иконки*/}
               <a
                 href="https://app.appsflyer.com/id894649641?af_ad=icon&amp;pid=dodopizza.site&amp;af_click_lookback=7d&amp;c=web"
@@ -217,24 +209,24 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <span className="text-2xl text-white cursor-pointer">6600</span>
+              <span className="cursor-pointer text-2xl text-white">6600</span>
             </li>
             <li className="mb-3">
-              <span className="text-slate-500 ">Звонок по телефону</span>
+              <span className="text-slate-500">Звонок по телефону</span>
             </li>
             <li>
-              <span className="text-slate-400 cursor-pointer hover:text-slate-100">
+              <span className="cursor-pointer text-slate-400 hover:text-slate-100">
                 feedback@dodopizza.tj
               </span>
             </li>
           </ul>
         </section>
         <hr className="my-7" />
-        <section className="flex justify-between -md:flex-col flex-wrap">
+        <section className="flex flex-wrap justify-between -md:flex-col">
           <nav>
-            <ul className="flex -md:flex-col gap-x-4 [&>*:nth-child(-n+4)]:text-slate-400">
+            <ul className="flex gap-x-4 -md:flex-col [&>*:nth-child(-n+4)]:text-slate-400">
               <li className="">
-                <span className="font-medium ">ДОДО ПИЦАА</span>
+                <span className="font-medium">ДОДО ПИЦАА</span>
                 <span className="ml-2">©&nbsp; 2024</span>
               </li>
               <li>
@@ -266,7 +258,7 @@ const Footer = () => {
               </li>
             </ul>
           </nav>
-          <div className="flex gap-x-2 [&>a>*:nth-child(-n+2)]:h-8 ">
+          <div className="flex gap-x-2 [&>a>*:nth-child(-n+2)]:h-8">
             <a href="https://www.facebook.com/dodopizzatj" target="_blank">
               <img src={facebook} />
             </a>

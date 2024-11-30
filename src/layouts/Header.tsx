@@ -1,12 +1,12 @@
 import { Link } from "react-router-dom";
 import Navigation from "./Navigation";
-import Slider from "./Slider";
+import Container from "../components/Container";
 
 const Header = () => {
   return (
-    <>
-      <header className="header flex -md:justify-center ">
-        <article className="grid grid-cols-3 gap-x-10 -md:grid-cols-1 -md:w-full w-fit justify-between  font-medium  pt-6 pb-4 ">
+    <Container>
+      <header className="header flex -md:justify-center">
+        <article className="grid w-fit grid-cols-3 justify-between gap-x-10 pb-4 pt-6 font-medium -md:w-full -md:grid-cols-1">
           <Link to="/">
             <div className="">
               <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 247 46">
@@ -25,17 +25,17 @@ const Header = () => {
             </div>
           </Link>
           <div className="flex flex-col -md:text-center">
-            <span className="text-lg -md:text-2xl -md:my-4">
+            <span className="text-lg -md:my-4 -md:text-2xl">
               Доставка пиццы
-              <span className="text-orange-500 ml-1 -md:ml-0 -md:block">
+              <span className="ml-1 text-orange-500 -md:ml-0 -md:block">
                 Душанбе
               </span>
             </span>
-            <div className="flex -md:text-2xl -md:justify-center">
+            <div className="flex -md:justify-center -md:text-2xl">
               30 мин
-              <span className="flex ml-3">
+              <span className="ml-3 flex">
                 <span>4.79</span>
-                <span className="self-center ml-1">
+                <span className="ml-1 self-center">
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="16"
@@ -63,15 +63,14 @@ const Header = () => {
               </span>
             </div>
           </div>
-          <div className="flex flex-col -md:text-2xl -md:text-center ">
+          <div className="flex flex-col -md:text-center -md:text-2xl">
             <span className="text-lg -md:text-2xl">6600</span>
             <span className="text-slate-400">Звонок по телефону</span>
           </div>
         </article>
       </header>
       <Navigation />
-      <Slider />
-    </>
+    </Container>
   );
 };
 

@@ -1,6 +1,6 @@
 const SizeChoice = () => {
   return (
-    <div className="container-radio  w-fit self-center mb-5">
+    <div className="container-radio mb-5 w-fit self-center">
       <div className="tabs">
         <input type="radio" id="radio-1" name="tabs" defaultChecked />
         <label className="tab" htmlFor="radio-1">

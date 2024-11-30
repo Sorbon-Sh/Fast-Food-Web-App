@@ -49,7 +49,7 @@ const sliderImageUrl = [
 ];
 const Slider = () => {
   return (
-    <div className=" carousel grid ">
+    <div className="carousel grid">
       <h1 className="text-3xl text-orange-500">Частые заказы</h1>
       <Carousel
         responsive={responsive}

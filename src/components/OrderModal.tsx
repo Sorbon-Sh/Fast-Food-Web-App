@@ -1,5 +1,5 @@
-import Button from "./buttons/Button";
-import closeIcon from "../assets/icon-close.png";
+import Button from "@/components/buttons/Button";
+import closeIcon from "@/assets/icon-close.png";
 
 const OrderModal = () => {
   return (

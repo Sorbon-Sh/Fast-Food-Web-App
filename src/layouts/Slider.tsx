@@ -1,3 +1,4 @@
+import { useGetProductQuery } from "@/lib/RTKQuery/getProductById";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 
@@ -48,6 +49,7 @@ const sliderImageUrl = [
   },
 ];
 const Slider = () => {
+  const { data: oftenOrders } = useGetProductQuery("often-orders");
   return (
     <div className="carousel grid">
       <h1 className="text-3xl text-orange-500">Частые заказы</h1>

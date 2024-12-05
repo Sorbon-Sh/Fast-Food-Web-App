@@ -1,6 +1,6 @@
 import { configureStore } from "@reduxjs/toolkit";
 import { supabaseApi } from "./RTKQuery/getProductById";
-import { productData } from "./slices/grudSupabase";
+import { productData } from "./slices/productState";
 
 export const store = configureStore({
   reducer: {

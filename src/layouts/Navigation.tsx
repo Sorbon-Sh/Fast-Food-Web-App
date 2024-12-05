@@ -4,39 +4,20 @@ import burger from "../assets/icon-menu.png";
 import closeIcon from "../assets/icon-close.png";
 import { useState } from "react";
 import { useDispatch } from "react-redux";
-import { endpoint } from "../lib/slices/grudSupabase";
+import { endpoint } from "../lib//slices/productState";
 
 const Navigation = () => {
   const [show, setShow] = useState(false);
-  // const { category } = useParams();
   const dispatch = useDispatch();
   //* Временный
-  const navItems = [
-    "Питца",
-    "Комбо",
-    "Закуски",
-    "Десерты",
-    "Напитки",
-    "Соусы",
-    "Любят дети",
-  ];
+
+  // const handleClick = () => {};
 
   return (
     <>
       <nav className="navigation sticky top-0 z-10 bg-white bg-opacity-90 backdrop-blur-sm -md:static">
         <article className="flex justify-between align-middle">
           <ul className="flex -md:hidden">
-            {/* {navItems.map((elem, index) => (
-              <Link to={`/categories/:${index}`}>
-                <li key={elem} className="navItems" onClick={dispatch(pizza())}>
-                  {elem}
-                </li>
-              </Link>
-            ))} */}
-
-            {/* 
-          //* Создаем значение для State для endpoit - тов
-             */}
             <Link to="/">
               <li
                 className="navItems"
@@ -94,7 +75,7 @@ const Navigation = () => {
               </li>
             </Link>
           </ul>
-          <Link to={"/junk"} className="self-center">
+          <Link to={"/cart"} className="self-center">
             <Button style="py-2 px-5  rounded-3xl">Корзина</Button>
           </Link>
           <div className="hidden -md:block">
@@ -107,7 +88,7 @@ const Navigation = () => {
         </article>
       </nav>
       <div
-        className={`absolute z-50 w-32 bg-slate-400 bg-opacity-90 text-center backdrop-blur-sm ${show ? "block" : "hidden"} left-2/4 top-[49%] h-full w-full -translate-x-2/4 -translate-y-2/4`}
+        className={`absolute z-50 bg-slate-400 bg-opacity-90 text-center backdrop-blur-sm ${show ? "block" : "hidden"} left-2/4 top-[49%] h-full w-full -translate-x-2/4 -translate-y-2/4`}
       >
         <div className="mx-auto mt-44 max-w-96 rounded-lg bg-white p-2">
           <img
@@ -117,14 +98,83 @@ const Navigation = () => {
             className="mb-3 ml-auto size-12 cursor-pointer"
           />
           <ul>
-            {navItems.map((elem, index) => (
+            <Link to="/">
               <li
                 className="py-5 hover:text-orange-400 hover:transition-all"
-                key={index}
+                onClick={() => {
+                  dispatch(endpoint("pizza"));
+                  setShow(!show);
+                }}
               >
-                {elem}
+                Питца
               </li>
-            ))}
+            </Link>
+            <Link to="combo">
+              <li
+                className="py-5 hover:text-orange-400 hover:transition-all"
+                onClick={() => {
+                  dispatch(endpoint("combo"));
+                  setShow(!show);
+                }}
+              >
+                Комбо
+              </li>
+            </Link>
+            <Link to="snacks">
+              <li
+                className="py-5 hover:text-orange-400 hover:transition-all"
+                onClick={() => {
+                  dispatch(endpoint("snacks"));
+                  setShow(!show);
+                }}
+              >
+                Закуски
+              </li>
+            </Link>
+            <Link to="deserty">
+              <li
+                className="py-5 hover:text-orange-400 hover:transition-all"
+                onClick={() => {
+                  dispatch(endpoint("deserty"));
+                  setShow(!show);
+                }}
+              >
+                Десерты
+              </li>
+            </Link>
+            <Link to="drinks">
+              <li
+                className="py-5 hover:text-orange-400 hover:transition-all"
+                onClick={() => {
+                  dispatch(endpoint("drinks"));
+                  setShow(!show);
+                }}
+              >
+                Напитки
+              </li>
+            </Link>
+            <Link to="sauces">
+              <li
+                className="py-5 hover:text-orange-400 hover:transition-all"
+                onClick={() => {
+                  dispatch(endpoint("sauces"));
+                  setShow(!show);
+                }}
+              >
+                Соусы
+              </li>
+            </Link>
+            <Link to="kidsLike">
+              <li
+                className="py-5 hover:text-orange-400 hover:transition-all"
+                onClick={() => {
+                  dispatch(endpoint("kidsLike"));
+                  setShow(!show);
+                }}
+              >
+                Любят дети
+              </li>
+            </Link>
           </ul>
         </div>
       </div>

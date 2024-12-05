@@ -10,7 +10,7 @@ export interface IDataSupabase {
   id: number;
   title: string;
   //* Типитизация объекта в объекте
-  price: { "25": number; "30": number; "35": number } & number;
+  price: object & number;
   piece?: number;
   size?: string;
   imgLink: string;

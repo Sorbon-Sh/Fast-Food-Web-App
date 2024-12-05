@@ -1,5 +1,4 @@
 import { Link } from "react-router-dom";
-import Navigation from "./Navigation";
 import Container from "../components/Container";
 
 const Header = () => {
@@ -69,7 +68,6 @@ const Header = () => {
           </div>
         </article>
       </header>
-      <Navigation />
     </Container>
   );
 };

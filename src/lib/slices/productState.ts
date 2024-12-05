@@ -8,9 +8,13 @@ export const productData = createSlice({
   reducers: {
     endpoint: (state, action) => {
       state.value = action.payload;
+      sessionStorage.setItem("state", state.value);
+    },
+    sizeChoice: (state, action) => {
+      state.size = action.payload;
     },
   },
 });
 
-export const { endpoint } = productData.actions;
+export const { endpoint, sizeChoice } = productData.actions;
 export default productData.reducer;

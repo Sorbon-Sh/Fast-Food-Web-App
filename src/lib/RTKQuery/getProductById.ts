@@ -6,7 +6,17 @@ export const supabaseApi = createApi({
   reducerPath: "supabaseApi",
   baseQuery: fetchBaseQuery({}),
   endpoints: (builder) => ({
-    getPizza: builder.query<IDataSupabase[], string>({
+    getCategory: builder.query<IDataSupabase[], string>({
+      queryFn: async (id) => {
+        const { data, error } = await supabase.from(`${id}`).select("*");
+        //  .eq('done', false)
+
+        if (error) console.log(error.message);
+
+        return { data: data || [] };
+      },
+    }),
+    getProduct: builder.query<IDataSupabase[], string>({
       queryFn: async (id) => {
         const { data, error } = await supabase.from(`${id}`).select("*");
         //  .eq('done', false)
@@ -19,4 +29,4 @@ export const supabaseApi = createApi({
   }),
 });
 
-export const { useGetPizzaQuery } = supabaseApi;
+export const { useGetCategoryQuery, useGetProductQuery } = supabaseApi;

@@ -3,7 +3,7 @@ import { createRoot } from "react-dom/client";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./pages/Layout.tsx";
 import ProductDetailsPage from "./pages/ProductDetails.tsx";
-import CartPage from "./pages/Junk.tsx";
+import CartPage from "./pages/Cart.tsx";
 import ErrorPage from "./pages/ErrorPage.tsx";
 import { Provider } from "react-redux";
 import { store } from "./lib/store.ts";
@@ -32,7 +32,7 @@ const router = createBrowserRouter(
         { path: "/sauces", element: <SaucesPage /> },
         { path: "/kidsLike", element: <KidsPage /> },
         { path: "/product/:id", element: <ProductDetailsPage /> },
-        { path: "/junk", element: <CartPage /> },
+        { path: "/cart", element: <CartPage /> },
       ],
     },
     { path: "*", element: <ErrorPage /> },

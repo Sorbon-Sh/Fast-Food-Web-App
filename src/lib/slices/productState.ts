@@ -4,7 +4,13 @@ import { createSlice } from "@reduxjs/toolkit";
 // const initialState: IDataSupabase | null = {value: null};
 export const productData = createSlice({
   name: "productData",
-  initialState: { value: "pizza", size: "30" },
+  initialState: {
+    value: "pizza",
+    size: "30",
+    sizeForm: 0,
+    orderCount: 0,
+    modalState: false,
+  },
   reducers: {
     endpoint: (state, action) => {
       state.value = action.payload;
@@ -13,8 +19,18 @@ export const productData = createSlice({
     sizeChoice: (state, action) => {
       state.size = action.payload;
     },
+    sizeFormPizza: (state, action) => {
+      state.sizeForm = action.payload;
+    },
+    orderCount: (state, action) => {
+      state.orderCount = action.payload;
+    },
+    modalState: (state, action) => {
+      state.modalState = action.payload;
+    },
   },
 });
 
-export const { endpoint, sizeChoice } = productData.actions;
+export const { endpoint, sizeChoice, sizeFormPizza, orderCount, modalState } =
+  productData.actions;
 export default productData.reducer;

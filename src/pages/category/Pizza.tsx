@@ -4,13 +4,14 @@ import { Link } from "react-router-dom";
 import ProductItems from "../../components/ProductItems";
 import Loader from "../../components/Loader";
 import { useGetCategoryQuery } from "../../lib/RTKQuery/getProductById";
+import ContentContainer from "@/components/ContentContainer";
 
 //? End points!
 const PizzaPage = () => {
   const { data: product } = useGetCategoryQuery("pizza");
 
   return (
-    <section className="grid gap-x-4 gap-y-5 -2xl:grid-cols-[repeat(auto-fill,minmax(300px,1fr))] -md:grid-cols-[repeat(auto-fill,minmax(200px,1fr))] -sm-table:grid-cols-1">
+    <ContentContainer>
       {product ? (
         product.map((elem, index) => (
           <div key={elem.id}>
@@ -30,7 +31,7 @@ const PizzaPage = () => {
       ) : (
         <Loader />
       )}
-    </section>
+    </ContentContainer>
   );
 };
 

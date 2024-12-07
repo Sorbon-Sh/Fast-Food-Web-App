@@ -16,7 +16,10 @@ import { RootState } from "@/lib/store";
 //  2) написать свой @layer components и добавить .nameClass{ @applay стили tailwindcss... } и целом сокрашение классов в JSX
 
 const CartPage = () => {
-  const cartData: IDataSupabase[] = JSON.parse(localStorage.getItem("cart"));
+  const cartData: IDataSupabase[] = JSON.parse(
+    //? Принамаем данные JSON, либо что-то прийдет, либо пустой массив в JSON
+    localStorage.getItem("cart") || "[]",
+  );
   const size = useSelector((state: RootState) => state.productData.size);
 
   return (
@@ -29,7 +32,8 @@ const CartPage = () => {
         </span>
         <Button style="ml-10 px-5 py-3 -md:ml-0">Заказать все</Button>
       </div>
-      {cartData ? (
+
+      {cartData.length !== 0 ? (
         cartData.map((cartElem) => (
           <article className="my-3 border-2">
             <img
@@ -39,10 +43,11 @@ const CartPage = () => {
             />
             <div className="flex min-h-40 justify-between -lg:flex-col -lg:gap-y-5 [&>*]:w-96 -lg:[&>*]:w-full -lg:[&>*]:text-center">
               <div className="">
-                <img src={cartElem.imgLink} alt="" />
+                <img src={cartElem.imgLink} alt="" className="mx-auto" />
               </div>
               <div className="px-3">
-                <div className="mb-2">
+                <span className="mb-2 text-xl">{cartElem.title}</span>
+                <div className="mb-2 mt-1">
                   {cartElem.price[size] || cartElem.price},00 см
                 </div>
                 {cartElem.description}

@@ -10,7 +10,7 @@ const Layout = () => {
     <>
       <Header />
       <Toaster toastOptions={{ className: "" }} />
-      <Container>
+      <Container className="pb-10">
         <Navigation />
         {/* <Slider /> */}
         <div>Slider в ремонте</div>

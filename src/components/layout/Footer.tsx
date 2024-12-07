@@ -4,7 +4,7 @@ import Container from "@/components/Container";
 
 const Footer = () => {
   return (
-    <footer className="footer mt-10 bg-black px-4 py-8">
+    <footer className="footer bg-black px-4 py-8">
       <Container>
         <section className="flex justify-between -md:flex-col">
           <article className="flex gap-x-7 -md:justify-center -sm-table:flex-col -sm-table:text-center [&>ul>*:nth-child(1)]:text-white [&>ul>*:nth-child(n+2)]:text-slate-300 [&>ul]:mb-4">
@@ -209,15 +209,20 @@ const Footer = () => {
               </a>
             </li>
             <li>
-              <span className="cursor-pointer text-2xl text-white">6600</span>
+              <a href="tel:6600" className="cursor-pointer text-2xl text-white">
+                6600
+              </a>
             </li>
             <li className="mb-3">
               <span className="text-slate-500">Звонок по телефону</span>
             </li>
             <li>
-              <span className="cursor-pointer text-slate-400 hover:text-slate-100">
+              <a
+                href="mailto:feedback@dodopizza.tj"
+                className="cursor-pointer text-slate-400 hover:text-slate-100"
+              >
                 feedback@dodopizza.tj
-              </span>
+              </a>
             </li>
           </ul>
         </section>

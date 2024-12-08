@@ -1,5 +1,4 @@
 import Button from "../components/buttons/Button";
-import NumberOfOrders from "../components/NumberOfOrders";
 import deleteIcon from "../assets/delete.png";
 import { IDataSupabase } from "@/lib/types/types";
 import { useSelector } from "react-redux";
@@ -21,6 +20,12 @@ const CartPage = () => {
     localStorage.getItem("cart") || "[]",
   );
   const size = useSelector((state: RootState) => state.productData.size);
+
+  const removeItem = (index) => {
+    // Создаем новый массив без элемента с указанным индексом
+    const newData = [...cartData.slice(0, index), ...cartData.slice(index + 1)];
+    setData(newData); // Обновляем состояние
+  };
 
   return (
     <section className="content grid grid-cols-1">
@@ -51,9 +56,6 @@ const CartPage = () => {
                   {cartElem.price[size] || cartElem.price},00 см
                 </div>
                 {cartElem.description}
-              </div>
-              <div className="">
-                <NumberOfOrders style="-lg:mx-auto" />
               </div>
             </div>
           </article>

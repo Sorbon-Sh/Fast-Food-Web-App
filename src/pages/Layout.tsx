@@ -4,16 +4,16 @@ import Footer from "@/components/layout/Footer";
 import Container from "@/components/Container";
 import Navigation from "@/layouts/Navigation";
 import { Toaster } from "react-hot-toast";
+import Carousel from "@/layouts/Carousel";
 
 const Layout = () => {
   return (
     <>
       <Header />
-      <Toaster toastOptions={{ className: "" }} />
+      <Toaster />
       <Container>
         <Navigation />
-        {/* <Slider /> */}
-        <div>Slider в ремонте</div>
+        <Carousel />
         <Outlet />
       </Container>
       <Footer />

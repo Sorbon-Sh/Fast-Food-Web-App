@@ -41,6 +41,7 @@ const ProductDetailsPage = () => {
     }
     toast.success("Добавлена в корзину", { position: "top-center" });
     const added = [...cartData, ...[data]];
+
     setCartData(added);
   };
   console.log(data);

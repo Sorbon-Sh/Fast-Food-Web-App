@@ -6,7 +6,7 @@ const SizeChoice = () => {
   const dispatch = useDispatch();
   const size = useSelector((state: RootState) => state.productData.size);
   return (
-    <div className="container-radio mx-auto mb-5 w-fit self-center">
+    <div className="container-radio mx-auto mb-4 w-fit self-center">
       <div className="tabs">
         <input
           type="radio"

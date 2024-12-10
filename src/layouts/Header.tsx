@@ -30,7 +30,7 @@ const Header = () => {
                 Душанбе
               </span>
             </span>
-            <div className="flex -md:justify-center -md:text-2xl">
+            <div className="flex -md:justify-center -md:text-xl">
               30 мин
               <span className="ml-3 flex">
                 <span>4.79</span>
@@ -62,8 +62,8 @@ const Header = () => {
               </span>
             </div>
           </div>
-          <div className="flex flex-col -md:text-center -md:text-2xl">
-            <span className="text-lg -md:text-2xl">6600</span>
+          <div className="flex flex-col -md:text-center -md:text-xl">
+            <span className="text-lg -md:text-xl">6600</span>
             <span className="text-slate-400">Звонок по телефону</span>
           </div>
         </article>

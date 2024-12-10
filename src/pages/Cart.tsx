@@ -1,8 +1,10 @@
 import Button from "../components/buttons/Button";
-import deleteIcon from "../assets/delete.png";
+import deleteIcon from "../assets/icon-close.png";
 import { IDataSupabase } from "@/lib/types/types";
-import { useSelector } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
 import { RootState } from "@/lib/store";
+import { modalState } from "@/lib/slices/productState";
+import { useEffect, useState } from "react";
 
 // Example with responsive -lg:[&>*]:text-center,
 // Минус такого подхода в том что пробелы нужно делать в нижнем почеркивании (_) в квадратных скобках
@@ -15,17 +17,26 @@ import { RootState } from "@/lib/store";
 //  2) написать свой @layer components и добавить .nameClass{ @applay стили tailwindcss... } и целом сокрашение классов в JSX
 
 const CartPage = () => {
+  const [remove, setRemove] = useState<IDataSupabase[]>();
   const cartData: IDataSupabase[] = JSON.parse(
     //? Принамаем данные JSON, либо что-то прийдет, либо пустой массив в JSON
     localStorage.getItem("cart") || "[]",
   );
   const size = useSelector((state: RootState) => state.productData.size);
+  const dispatch = useDispatch();
 
-  const removeItem = (index) => {
-    // Создаем новый массив без элемента с указанным индексом
-    const newData = [...cartData.slice(0, index), ...cartData.slice(index + 1)];
-    setData(newData); // Обновляем состояние
+  const del = () => {
+    if (cartData) {
+      setRemove(cartData.splice(1, 1));
+    }
+    console.log(remove);
   };
+
+  useEffect(() => {
+    localStorage.setItem("cart", JSON.stringify(remove ? remove : cartData));
+  }, [remove]);
+
+  console.log(remove);
 
   return (
     <section className="content grid grid-cols-1">
@@ -45,6 +56,7 @@ const CartPage = () => {
               src={deleteIcon}
               alt="Удалить"
               className="ml-auto w-14 cursor-pointer p-2"
+              onClick={del}
             />
             <div className="flex min-h-40 justify-between -lg:flex-col -lg:gap-y-5 [&>*]:w-96 -lg:[&>*]:w-full -lg:[&>*]:text-center">
               <div className="">
@@ -56,6 +68,20 @@ const CartPage = () => {
                   {cartElem.price[size] || cartElem.price},00 см
                 </div>
                 {cartElem.description}
+              </div>
+              <div>
+                {/* useRef */}
+                <input
+                  type="number"
+                  className="rounded-xl bg-gray-200 p-3"
+                  placeholder="Количество"
+                />
+                <Button
+                  style="py-3 ml-3 px-8"
+                  handleClick={() => dispatch(modalState(true))}
+                >
+                  Заказать
+                </Button>
               </div>
             </div>
           </article>

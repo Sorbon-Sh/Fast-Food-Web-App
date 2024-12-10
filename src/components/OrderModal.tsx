@@ -3,21 +3,29 @@ import closeIcon from "@/assets/icon-close.png";
 import { useDispatch, useSelector } from "react-redux";
 import { modalState } from "@/lib/slices/productState";
 import { RootState } from "@/lib/store";
+import { MouseEvent } from "react";
 
 const OrderModal = () => {
   const dispatch = useDispatch();
   const modal = useSelector((state: RootState) => state.productData.modalState);
+  const closeModal = (event: MouseEvent) => {
+    event.stopPropagation();
+    dispatch(modalState(!modal));
+  };
   return (
     <>
       {modal && (
-        <section className="absolute left-2/4 top-2/4 z-20 grid h-full w-full -translate-x-2/4 -translate-y-2/4 place-content-center bg-slate-500 bg-opacity-30">
-          <div className="">
+        <section
+          onClick={closeModal}
+          className="absolute left-2/4 top-[48%] z-20 grid h-[100vw] w-full -translate-x-2/4 -translate-y-2/4 place-content-center bg-slate-500 bg-opacity-30"
+        >
+          <div>
             <form className="flex max-w-80 flex-col gap-2 rounded-3xl bg-white p-5 [&>label]:relative">
               <img
                 src={closeIcon}
                 alt="Закрыть"
                 className="ml-auto size-8 cursor-pointer"
-                onClick={() => dispatch(modalState(!modal))}
+                onClick={closeModal}
               />
               <p className="text-center text-2xl font-semibold text-orange-500">
                 Новый адрес

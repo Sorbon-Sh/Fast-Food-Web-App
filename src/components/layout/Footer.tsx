@@ -7,7 +7,7 @@ const Footer = () => {
     <footer className="footer mt-10 bg-black px-4 py-8">
       <Container>
         <section className="flex justify-between -md:flex-col">
-          <article className="flex gap-x-7 -md:justify-center -sm-table:flex-col -sm-table:text-center [&>ul>*:nth-child(1)]:text-white [&>ul>*:nth-child(n+2)]:text-slate-300 [&>ul]:mb-4">
+          <article className="flex gap-x-7 -md:justify-center -sm-table:flex-col [&>ul>*:nth-child(1)]:text-white [&>ul>*:nth-child(n+2)]:text-slate-300 [&>ul]:mb-4">
             <ul>
               <li>Дода Пицца</li>
               <li>
@@ -51,8 +51,8 @@ const Footer = () => {
             </ul>
           </article>
 
-          <ul className="text-end -md:text-center">
-            <li className="-md:items mb-4 flex justify-end gap-x-2 -md:flex-col -md:items-center -md:gap-y-3">
+          <ul className="text-end -md:text-center -sm-table:text-start">
+            <li className="-md:items mb-4 flex justify-end gap-x-2 -md:flex-col -md:items-center -md:gap-y-3 -sm-table:items-start">
               {/* Для больших проектов таким кода пользоваться не надо!!! Используйте иконки*/}
               <a
                 href="https://app.appsflyer.com/id894649641?af_ad=icon&amp;pid=dodopizza.site&amp;af_click_lookback=7d&amp;c=web"

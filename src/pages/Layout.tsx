@@ -5,6 +5,7 @@ import Container from "@/components/Container";
 import Navigation from "@/layouts/Navigation";
 import { Toaster } from "react-hot-toast";
 import Carousel from "@/layouts/Carousel";
+import OrderModal from "@/components/OrderModal";
 
 const Layout = () => {
   return (
@@ -15,6 +16,7 @@ const Layout = () => {
         <Navigation />
         <Carousel />
         <Outlet />
+        <OrderModal />
       </Container>
       <Footer />
     </>

@@ -7,7 +7,6 @@ import ByPieces from "@/components/productBy/ByPieces";
 import BySize from "@/components/productBy/BySize";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
-import OrderModal from "@/components/OrderModal";
 import { useSelector } from "react-redux";
 
 const ProductDetailsPage = () => {
@@ -49,16 +48,16 @@ const ProductDetailsPage = () => {
   return (
     <section className="content">
       {productById ? (
-        <article className="grid grid-cols-2 grid-rows-2 -lg:grid-cols-1">
+        <article className="grid h-96 grid-cols-2 grid-rows-1 -lg:h-auto -lg:grid-cols-1">
           <div className="row-start-1 row-end-2 grid place-content-center -lg:row-start-2">
             <img
               src={data?.imgLink}
               alt=""
               //? Если есть объекты данных из питцы и Если size равен размерам, тогда изменить размер
-              className={`object-contain ${data?.price["25"] ? size === "25" && "size-80" : null} ${data?.price["30"] ? size === "30" && "size-96" : null} ${data?.price["35"] ? size === "35" && "size-[28rem]" : null} transition-all`}
+              className={`object-contain ${data?.price["25"] ? size === "25" && "size-80" : null} ${data?.price["30"] ? size === "30" && "size-96" : null} ${data?.price["35"] ? size === "35" && "size-[28rem]" : null} ${productCategory !== "pizza" && "size-96"} transition-all`}
             />
           </div>
-          <div className="flex justify-between -xl:flex-col -sm-table:flex-col -sm-table:text-center">
+          <div className="flex justify-between -xl:flex-col -lg:mb-3 -sm-table:flex-col -sm-table:text-center">
             <div className="flex flex-col px-3 pl-5 -xl:pb-3 -sm-table:p-0">
               <h4 className="mb-4 text-3xl">{data?.title}</h4>
               <span className="mb-6 text-2xl">
@@ -85,7 +84,6 @@ const ProductDetailsPage = () => {
       ) : (
         <Loader />
       )}
-      <OrderModal />
     </section>
   );
 };

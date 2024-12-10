@@ -17,26 +17,24 @@ import { useEffect, useState } from "react";
 //  2) написать свой @layer components и добавить .nameClass{ @applay стили tailwindcss... } и целом сокрашение классов в JSX
 
 const CartPage = () => {
-  const [remove, setRemove] = useState<IDataSupabase[]>();
-  const cartData: IDataSupabase[] = JSON.parse(
-    //? Принамаем данные JSON, либо что-то прийдет, либо пустой массив в JSON
-    localStorage.getItem("cart") || "[]",
+  const [cartFromLS, setCartFromLS] = useState<IDataSupabase[] | null>(
+    JSON.parse(localStorage.getItem("cart") || ""),
   );
   const size = useSelector((state: RootState) => state.productData.size);
   const dispatch = useDispatch();
 
-  const del = () => {
-    if (cartData) {
-      setRemove(cartData.splice(1, 1));
+  const del = (index: number) => {
+    if (cartFromLS) {
+      setCartFromLS(cartFromLS.splice(index, 1));
+      console.log(index);
+
+      localStorage.setItem("cart", JSON.stringify(cartFromLS));
     }
-    console.log(remove);
   };
 
   useEffect(() => {
-    localStorage.setItem("cart", JSON.stringify(remove ? remove : cartData));
-  }, [remove]);
-
-  console.log(remove);
+    setCartFromLS(JSON.parse(localStorage.getItem("cart") || ""));
+  }, [cartFromLS]);
 
   return (
     <section className="content grid grid-cols-1">
@@ -49,14 +47,14 @@ const CartPage = () => {
         <Button style="ml-10 px-5 py-3 -md:ml-0">Заказать все</Button>
       </div>
 
-      {cartData.length !== 0 ? (
-        cartData.map((cartElem) => (
-          <article className="my-3 border-2">
+      {cartFromLS && cartFromLS.length !== 0 ? (
+        cartFromLS.map((cartElem, index) => (
+          <article key={cartElem.id} className="my-3 border-2">
             <img
               src={deleteIcon}
               alt="Удалить"
               className="ml-auto w-14 cursor-pointer p-2"
-              onClick={del}
+              onClick={() => del(index)}
             />
             <div className="flex min-h-40 justify-between -lg:flex-col -lg:gap-y-5 [&>*]:w-96 -lg:[&>*]:w-full -lg:[&>*]:text-center">
               <div className="">

@@ -17,24 +17,33 @@ import { useEffect, useState } from "react";
 //  2) написать свой @layer components и добавить .nameClass{ @applay стили tailwindcss... } и целом сокрашение классов в JSX
 
 const CartPage = () => {
-  const [cartFromLS, setCartFromLS] = useState<IDataSupabase[] | null>(
-    JSON.parse(localStorage.getItem("cart") || ""),
-  );
   const size = useSelector((state: RootState) => state.productData.size);
   const dispatch = useDispatch();
+  const [cartFromLS, setCartFromLS] = useState([]);
 
+  // Load cart from localStorage when the component mounts
+  useEffect(() => {
+    const storedCart = JSON.parse(localStorage.getItem("cart") || "[]");
+    setCartFromLS(storedCart);
+  }, []); // Empty dependency array to run only once
+
+  // Function to delete an item from the cart
   const del = (index: number) => {
-    if (cartFromLS) {
-      setCartFromLS(cartFromLS.splice(index, 1));
-      console.log(index);
-
-      localStorage.setItem("cart", JSON.stringify(cartFromLS));
+    if (cartFromLS.length > 0) {
+      const updatedCart = [...cartFromLS]; // Create a copy of the cart
+      updatedCart.splice(index, 1); // Remove the item at the specified index
+      setCartFromLS(updatedCart); // Update the state with the new cart
+      localStorage.setItem("cart", JSON.stringify(updatedCart)); // Update localStorage
     }
   };
 
-  useEffect(() => {
-    setCartFromLS(JSON.parse(localStorage.getItem("cart") || ""));
-  }, [cartFromLS]);
+  //* Мы не деструктуризируем обекты а деструктуризируем данные с массива
+  // const [firstItem, secondItem, thirdItem] = cartFromLS;
+
+  //* Здесь один из данных массива объект который деструктуризируется (Это целый объект данных который нужно итерировать в массиве!)
+  // const { title } = firstItem;
+
+  // console.log(title);
 
   return (
     <section className="content grid grid-cols-1">
@@ -48,7 +57,7 @@ const CartPage = () => {
       </div>
 
       {cartFromLS && cartFromLS.length !== 0 ? (
-        cartFromLS.map((cartElem, index) => (
+        cartFromLS.map((cartElem: IDataSupabase, index) => (
           <article key={cartElem.id} className="my-3 border-2">
             <img
               src={deleteIcon}
@@ -76,7 +85,7 @@ const CartPage = () => {
                 />
                 <Button
                   style="py-3 ml-3 px-8"
-                  handleClick={() => dispatch(modalState(true))}
+                  handleClick={() => dispatch(modalState())}
                 >
                   Заказать
                 </Button>

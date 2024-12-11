@@ -25,8 +25,8 @@ export const productData = createSlice({
     orderCount: (state, action) => {
       state.orderCount = action.payload;
     },
-    modalState: (state, action) => {
-      state.modalState = action.payload;
+    modalState: (state) => {
+      state.modalState = !state.modalState;
     },
   },
 });

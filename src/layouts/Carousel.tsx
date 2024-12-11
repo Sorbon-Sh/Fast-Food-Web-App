@@ -6,6 +6,7 @@ import { useGetCategoryQuery } from "@/lib/RTKQuery/getProductById";
 
 function Responsive() {
   const { data: oftenOrders } = useGetCategoryQuery("ofter-orders");
+
   const settings = {
     dots: false,
 
@@ -58,7 +59,7 @@ function Responsive() {
         <Slider {...settings}>
           {oftenOrders &&
             oftenOrders.map((elem) => (
-              <div className="text-center">
+              <div className="text-center" key={elem.id}>
                 <img src={elem.imgLink} className="mx-auto size-56" />
                 <div className="font-medium">{elem.title}</div>
                 <div>от {elem.price},00 с</div>

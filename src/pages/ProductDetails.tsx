@@ -54,7 +54,7 @@ const ProductDetailsPage = () => {
               src={data?.imgLink}
               alt=""
               //? Если есть объекты данных из питцы и Если size равен размерам, тогда изменить размер
-              className={`object-contain ${data?.price["25"] ? size === "25" && "size-80" : null} ${data?.price["30"] ? size === "30" && "size-96" : null} ${data?.price["35"] ? size === "35" && "size-[28rem]" : null} ${productCategory !== "pizza" && "size-96"} transition-all`}
+              className={`object-contain ${data?.price["25"] ? size === "25" && "-xs-mobile:size-64 size-80 -sm:size-72 -sm-mobile:size-60" : null} ${data?.price["30"] ? size === "30" && "-xs-mobile:size-72 size-96 -sm:size-80 -sm-mobile:size-64" : null} ${data?.price["35"] ? size === "35" && "-xs-mobile:size-80 size-[28rem] -sm:size-96 -sm-mobile:size-72" : null} ${productCategory !== "pizza" && "size-96"} transition-all`}
             />
           </div>
           <div className="flex justify-between -xl:flex-col -lg:mb-3 -sm-table:flex-col -sm-table:text-center">

@@ -11,7 +11,7 @@ import { store } from "./lib/store.ts";
 import PizzaPage from "./pages/category/Pizza.tsx";
 import ComboPage from "./pages/category/Combo.tsx";
 import SnacksPage from "./pages/category/Snacks.tsx";
-import DessertsPage from "./pages/category/Deserty.tsx";
+import DessertsPage from "./pages/category/Desserts.tsx";
 import DrinksPage from "./pages/category/Drinks.tsx";
 import SaucesPage from "./pages/category/Sauces.tsx";
 import KidsPage from "./pages/category/KidsLike.tsx";

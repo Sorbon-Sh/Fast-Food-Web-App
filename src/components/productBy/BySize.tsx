@@ -1,7 +1,7 @@
 import { IDataSupabase } from "@/lib/types/types";
 import Button from "../buttons/Button";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/lib/store";
+import { useDispatch } from "react-redux";
+
 import SizeChoice from "../SizeChoice";
 import { modalState } from "@/lib/slices/productState";
 
@@ -11,15 +11,16 @@ interface IProps {
 }
 
 const BySize = ({ data, handleClick }: IProps) => {
-  const pizza = useSelector((state: RootState) => state.productData.value);
+  const stateCategory = sessionStorage.getItem("state");
+
   const dispatch = useDispatch();
   return (
     <>
       <div className="w-72 py-4 text-center -xl:w-full -sm-table:w-full -sm-table:p-0">
         {data?.piece || data?.size
           ? null
-          : pizza == "pizza" && (
-              <div>
+          : stateCategory == "pizza" && (
+              <div className="pb-1">
                 <div>
                   <SizeChoice />
                   <span>Доставка:</span>
@@ -30,9 +31,9 @@ const BySize = ({ data, handleClick }: IProps) => {
 
                 <Button
                   style="px-8 py-3 mt-8"
-                  handleClick={() => dispatch(modalState(true))}
+                  handleClick={() => dispatch(modalState())}
                 >
-                  Заказть
+                  Заказать
                 </Button>
                 <Button handleClick={handleClick} style="px-8 py-3 mt-8">
                   В корзину
@@ -40,11 +41,11 @@ const BySize = ({ data, handleClick }: IProps) => {
               </div>
             )}
 
-        {pizza !== "pizza" ? (
+        {stateCategory !== "pizza" ? (
           <div className="mx-auto mt-5 flex w-fit flex-col gap-y-2">
             <Button
               style="px-8 py-3 "
-              handleClick={() => dispatch(modalState(true))}
+              handleClick={() => dispatch(modalState())}
             >
               Заказать
             </Button>

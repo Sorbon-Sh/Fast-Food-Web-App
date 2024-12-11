@@ -39,9 +39,14 @@ export default {
 
         "-sm-table": { max: "578px" },
         // => @media (max-width: 578px) { ... }
+        
+        "-xs-mobile": { max: "380px"  },
+        // => @media (max-width: 346px) { ... }
+
 
         "-sm-mobile": { max: "346px" },
         // => @media (max-width: 346px) { ... }
+
       },
     },
   },

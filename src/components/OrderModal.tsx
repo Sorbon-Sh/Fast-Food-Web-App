@@ -73,7 +73,7 @@ const OrderModal = () => {
                 <label>
                   <input
                     placeholder="Подъезд"
-                    type="text"
+                    type="number"
                     className="w-full rounded-xl border-2 p-4 outline-0"
                     {...register("entrance")}
                   />
@@ -101,7 +101,7 @@ const OrderModal = () => {
                 <label>
                   <input
                     placeholder="Квартира"
-                    type="text"
+                    type="number"
                     className="w-full rounded-xl border-2 p-4 outline-0"
                     {...register("apartment")}
                   />

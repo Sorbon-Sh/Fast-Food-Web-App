@@ -2,7 +2,6 @@ import Button from "../components/buttons/Button";
 import deleteIcon from "../assets/icon-close.png";
 import { IDataSupabase } from "@/lib/types/types";
 import { useDispatch } from "react-redux";
-
 import { modalState } from "@/lib/slices/productState";
 import { useEffect, useState } from "react";
 
@@ -19,6 +18,7 @@ import { useEffect, useState } from "react";
 const CartPage = () => {
   const dispatch = useDispatch();
   const [cartFromLS, setCartFromLS] = useState([]);
+  // const modalState = useSelector((state:RootState) => state.productData.modalState)
 
   // Load cart from localStorage when the component mounts
   useEffect(() => {
@@ -43,15 +43,26 @@ const CartPage = () => {
 
   // console.log(title);
 
+  const totalPrice = cartFromLS
+    ? cartFromLS.reduce((acc, current: IDataSupabase) => {
+        return acc + current.price + (current.priceObj || 0);
+      }, 0)
+    : null;
+
   return (
     <section className="content grid grid-cols-1">
       <h1 className="mb-20 text-center text-4xl font-medium">Корзина</h1>
       <div className="mb-5 flex -md:justify-between">
         <span className="self-center text-xl font-medium [&>span]:ml-2">
           Итог:
-          <span>100</span>
+          <span>{cartFromLS && totalPrice}</span>
         </span>
-        <Button style="ml-10 px-5 py-3 -md:ml-0">Заказать все</Button>
+        <Button
+          style="ml-10 px-5 py-3 -md:ml-0"
+          handleClick={() => dispatch(modalState())}
+        >
+          Заказать все
+        </Button>
       </div>
 
       {cartFromLS && cartFromLS.length !== 0 ? (

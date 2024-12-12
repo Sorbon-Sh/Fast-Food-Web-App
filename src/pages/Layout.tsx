@@ -8,7 +8,14 @@ import Carousel from "@/layouts/Carousel";
 import OrderModal from "@/components/OrderModal";
 import { createPortal } from "react-dom";
 
+import { useEffect } from "react";
+
 const Layout = () => {
+  const category = sessionStorage.getItem("state");
+  useEffect(() => {
+    sessionStorage.setItem("state", category || "pizza");
+  }, [category]);
+
   return (
     <>
       <Header />

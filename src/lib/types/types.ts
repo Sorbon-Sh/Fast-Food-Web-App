@@ -11,6 +11,7 @@ export interface IDataSupabase {
   title: string;
   //* Типитизация объекта в объекте
   price: object & number;
+  priceObj?: number;
   piece?: number;
   size?: string;
   imgLink: string;

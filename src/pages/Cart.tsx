@@ -1,8 +1,8 @@
 import Button from "../components/buttons/Button";
 import deleteIcon from "../assets/icon-close.png";
 import { IDataSupabase } from "@/lib/types/types";
-import { useDispatch, useSelector } from "react-redux";
-import { RootState } from "@/lib/store";
+import { useDispatch } from "react-redux";
+
 import { modalState } from "@/lib/slices/productState";
 import { useEffect, useState } from "react";
 
@@ -17,7 +17,6 @@ import { useEffect, useState } from "react";
 //  2) написать свой @layer components и добавить .nameClass{ @applay стили tailwindcss... } и целом сокрашение классов в JSX
 
 const CartPage = () => {
-  const size = useSelector((state: RootState) => state.productData.size);
   const dispatch = useDispatch();
   const [cartFromLS, setCartFromLS] = useState([]);
 
@@ -36,7 +35,6 @@ const CartPage = () => {
       localStorage.setItem("cart", JSON.stringify(updatedCart)); // Update localStorage
     }
   };
-
   //* Мы не деструктуризируем обекты а деструктуризируем данные с массива
   // const [firstItem, secondItem, thirdItem] = cartFromLS;
 
@@ -58,7 +56,8 @@ const CartPage = () => {
 
       {cartFromLS && cartFromLS.length !== 0 ? (
         cartFromLS.map((cartElem: IDataSupabase, index) => (
-          <article key={cartElem.id} className="my-3 border-2">
+          //* Не уникальный ID не позволяет удалять данные с массива и выдаёт ощибу одинаковый id в cartElem.id
+          <article key={index} className="my-3 border-2">
             <img
               src={deleteIcon}
               alt="Удалить"
@@ -72,7 +71,7 @@ const CartPage = () => {
               <div className="px-3">
                 <span className="mb-2 text-xl">{cartElem.title}</span>
                 <div className="mb-2 mt-1">
-                  {cartElem.price[size] || cartElem.price},00 см
+                  {cartElem.priceObj || cartElem.price},00 см
                 </div>
                 {cartElem.description}
               </div>

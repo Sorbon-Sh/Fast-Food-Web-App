@@ -19,7 +19,7 @@ const BySize = ({ data, handleClick }: IProps) => {
       <div className="w-72 py-4 text-center -xl:w-full -sm-table:w-full -sm-table:p-0">
         {data?.piece || data?.size
           ? null
-          : stateCategory == "pizza" && (
+          : stateCategory === "pizza" && (
               <div className="pb-1">
                 <div>
                   <SizeChoice />

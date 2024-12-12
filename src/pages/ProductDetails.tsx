@@ -1,6 +1,5 @@
 import { useGetProductQuery } from "@/lib/RTKQuery/getProductById";
 import { useParams } from "react-router-dom";
-import { IDataSupabase } from "@/lib/types/types";
 import Loader from "@/components/Loader";
 import { RootState } from "@/lib/store";
 import ByPieces from "@/components/productBy/ByPieces";
@@ -14,36 +13,59 @@ const ProductDetailsPage = () => {
   const productCategory = sessionStorage.getItem("state");
   const size = useSelector((state: RootState) => state.productData.size);
 
-  //* Типитизация если productId будет null то явно указать тип данных
+  // Fetch product data based on the category
   const { data: productById } = useGetProductQuery(productCategory || "pizza");
-  //* RTKQuery типитизация
-  const data: IDataSupabase | undefined =
-    productById && productById[Number(id)];
-  //*=====================================
+
+  // Get the specific product data by ID
+  const data = productById && productById[Number(id)];
+
+  // Initialize cart data from localStorage
   const storeCart = localStorage.getItem("cart");
   const [cartData, setCartData] = useState(
     storeCart ? JSON.parse(storeCart) : [],
   );
 
+  //* Тот же самый метод который проходили
+  // Function to add product to cart
+  const addToCart = () => {
+    if (data) {
+      const productToAdd = {
+        id: data.id,
+        title: data.title,
+        imgLink: data.imgLink,
+        //* priceObject изначально нужно было создавать отдельно в Базы данных
+        priceObj: data.price[size] || null, // Get the price based on the selected size
+        price: typeof data.price === "object" ? null : data.price, // Assuming basePrice is a string
+      };
+
+      // if (cartData.find((elem: IDataSupabase) => elem.price === data.price)) {
+      //   toast.error("Уже добавлено");
+      //   return;
+      // }
+
+      // if (
+      //   cartData.find(
+      //     (elem: IDataSupabase) => elem.priceObj === data.price[size],
+      //   )
+      // ) {
+      //   toast.error("Уже добавлено");
+      //   return;
+      // }
+
+      toast.success("Добавлено в корзину");
+
+      // Update cart data
+      const updatedCart = [...cartData, productToAdd];
+      setCartData(updatedCart);
+      localStorage.setItem("cart", JSON.stringify(updatedCart)); // Save to localStorage
+      console.log(`Product ${data.id} added to cart.`);
+    }
+  };
+
+  // Effect to synchronize cart data with localStorage
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartData));
   }, [cartData]);
-
-  const cart = async () => {
-    if (
-      cartData.find((item: IDataSupabase) =>
-        data ? item.title === data.title : null,
-      )
-    ) {
-      toast.error("Добавлен", { position: "top-center" });
-      return;
-    }
-    toast.success("Добавлена в корзину", { position: "top-center" });
-    const added = [...cartData, ...[data]];
-
-    setCartData(added);
-  };
-  console.log(data);
 
   return (
     <section className="content">
@@ -54,7 +76,7 @@ const ProductDetailsPage = () => {
               src={data?.imgLink}
               alt=""
               //? Если есть объекты данных из питцы и Если size равен размерам, тогда изменить размер
-              className={`object-contain ${data?.price["25"] ? size === "25" && "-xs-mobile:size-64 size-80 -sm:size-72 -sm-mobile:size-60" : null} ${data?.price["30"] ? size === "30" && "-xs-mobile:size-72 size-96 -sm:size-80 -sm-mobile:size-64" : null} ${data?.price["35"] ? size === "35" && "-xs-mobile:size-80 size-[28rem] -sm:size-96 -sm-mobile:size-72" : null} ${productCategory !== "pizza" && "size-96"} transition-all`}
+              className={`object-contain ${data?.price["25"] ? size === "25" && "size-80 -sm:size-72 -xs-mobile:size-64 -sm-mobile:size-60" : null} ${data?.price["30"] ? size === "30" && "size-96 -sm:size-80 -xs-mobile:size-72 -sm-mobile:size-64" : null} ${data?.price["35"] ? size === "35" && "size-[28rem] -sm:size-96 -xs-mobile:size-80 -sm-mobile:size-72" : null} ${productCategory !== "pizza" && "size-96"} transition-all`}
             />
           </div>
           <div className="flex justify-between -xl:flex-col -lg:mb-3 -sm-table:flex-col -sm-table:text-center">
@@ -76,7 +98,7 @@ const ProductDetailsPage = () => {
                 {/* 
                 //? Если есть данные по количеству или по литру то, скрыть функционал изменение размера питцы
                  */}
-                <BySize data={data} handleClick={cart} />
+                <BySize data={data} handleClick={addToCart} />
               </div>
             </div>
           </div>

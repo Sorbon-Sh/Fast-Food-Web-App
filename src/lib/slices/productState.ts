@@ -7,7 +7,7 @@ export const productData = createSlice({
   initialState: {
     value: "pizza",
     size: "30",
-    sizeForm: 0,
+    formData: null,
     orderCount: 0,
     modalState: false,
   },
@@ -19,8 +19,8 @@ export const productData = createSlice({
     sizeChoice: (state, action) => {
       state.size = action.payload;
     },
-    sizeFormPizza: (state, action) => {
-      state.sizeForm = action.payload;
+    formData: (state, action) => {
+      state.formData = action.payload;
     },
     orderCount: (state, action) => {
       state.orderCount = action.payload;
@@ -31,6 +31,6 @@ export const productData = createSlice({
   },
 });
 
-export const { endpoint, sizeChoice, sizeFormPizza, orderCount, modalState } =
+export const { endpoint, sizeChoice, formData, orderCount, modalState } =
   productData.actions;
 export default productData.reducer;

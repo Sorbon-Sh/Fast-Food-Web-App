@@ -12,13 +12,16 @@ const ProductDetailsPage = () => {
   const { id } = useParams();
   const productCategory = sessionStorage.getItem("state");
   const size = useSelector((state: RootState) => state.productData.size);
+  const productState = useSelector(
+    (state: RootState) => state.productData.value,
+  );
 
   // Fetch product data based on the category
   const { data: productById } = useGetProductQuery(productCategory || "pizza");
 
   // Get the specific product data by ID
   const data = productById && productById[Number(id)];
-
+  //* ====================================================================
   // Initialize cart data from localStorage
   const storeCart = localStorage.getItem("cart");
   const [cartData, setCartData] = useState(
@@ -38,19 +41,21 @@ const ProductDetailsPage = () => {
         price: typeof data.price === "object" ? null : data.price, // Assuming basePrice is a string
       };
 
-      // if (cartData.find((elem: IDataSupabase) => elem.price === data.price)) {
-      //   toast.error("Уже добавлено");
-      //   return;
-      // }
+      //? Это костыли, В следуйшим проекте писать лучше
+      const isProductInCart = cartData.some((product) =>
+        productState === "pizza"
+          ? //* Роль ID для питцы играет размер
+            product.priceObj === productToAdd.priceObj
+          : //* Роль ID для других продуктов играет заголовок
+            product.title === productToAdd.title,
+      );
+      console.log(isProductInCart);
 
-      // if (
-      //   cartData.find(
-      //     (elem: IDataSupabase) => elem.priceObj === data.price[size],
-      //   )
-      // ) {
-      //   toast.error("Уже добавлено");
-      //   return;
-      // }
+      if (isProductInCart) {
+        toast.error("Товар уже добавлен в корзину");
+        console.log(`Product ${data.id} is already in the cart.`);
+        return; // Выходим из функции, если товар уже в корзине
+      }
 
       toast.success("Добавлено в корзину");
 
@@ -66,7 +71,7 @@ const ProductDetailsPage = () => {
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cartData));
   }, [cartData]);
-
+  //*=======================================================================
   return (
     <section className="content">
       {productById ? (

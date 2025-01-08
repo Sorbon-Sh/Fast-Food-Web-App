@@ -55,7 +55,7 @@ const CartPage = () => {
       <div className="mb-5 flex -md:justify-between">
         <span className="self-center text-xl font-medium [&>span]:ml-2">
           Итог:
-          <span>{cartFromLS && totalPrice}</span>
+          <span>{cartFromLS && totalPrice}см</span>
         </span>
         <Button
           style="ml-10 px-5 py-3 -md:ml-0"

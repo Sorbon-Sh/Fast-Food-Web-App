@@ -21,8 +21,12 @@ import "./index.css";
 const router = createBrowserRouter(
   [
     {
+      //* Creating path for Components
       path: "/",
       element: <Layout />,
+      //* All Component childrens of Component Layout
+      //* They can changes by changing URL address, but Elements in Layout Component can not changes and update
+      //* If you do not update somethink in Layout Component
       children: [
         { path: "/", element: <PizzaPage /> },
         { path: "/combo", element: <ComboPage /> },
@@ -31,6 +35,7 @@ const router = createBrowserRouter(
         { path: "/drinks", element: <DrinksPage /> },
         { path: "/sauces", element: <SaucesPage /> },
         { path: "/kidsLike", element: <KidsPage /> },
+        //* Create param URL for any ID
         { path: "/product/:id", element: <ProductDetailsPage /> },
         { path: "/cart", element: <CartPage /> },
       ],
@@ -50,7 +55,13 @@ const router = createBrowserRouter(
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
+    {/*
+     //* Redux-Toolkit Provider
+     */}
     <Provider store={store}>
+      {/* 
+      //* Router Provider
+       */}
       <RouterProvider router={router} future={{ v7_startTransition: true }} />
     </Provider>
   </StrictMode>,

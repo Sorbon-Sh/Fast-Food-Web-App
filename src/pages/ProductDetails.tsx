@@ -7,6 +7,7 @@ import BySize from "@/components/productBy/BySize";
 import { useEffect, useState } from "react";
 import toast from "react-hot-toast";
 import { useSelector } from "react-redux";
+import { IDataSupabase } from "@/lib/types/types";
 
 const ProductDetailsPage = () => {
   const { id } = useParams();
@@ -42,7 +43,7 @@ const ProductDetailsPage = () => {
       };
 
       //? Это костыли, В следуйшим проекте писать лучше
-      const isProductInCart = cartData.some((product) =>
+      const isProductInCart = cartData.some((product: IDataSupabase) =>
         productState === "pizza"
           ? //* Роль ID для питцы играет размер
             product.priceObj === productToAdd.priceObj

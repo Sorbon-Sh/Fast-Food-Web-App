@@ -1,9 +1,10 @@
 import { Link } from "react-router-dom";
 
 const ErrorPage = () => {
+
   return (
     <div className="text-center">
-      <h1 className="mb-4 text-9xl font-semibold text-orange-400">404</h1>
+      <h1 className="mb-4 text-9xl  font-semibold text-orange-400">404</h1>
       <p className="mb-4 text-xl text-gray-600">
         Oops! Looks like you're lost.
       </p>
@@ -22,7 +23,7 @@ const ErrorPage = () => {
           ></path>
         </svg>
       </div>
-      <p className="mt-4 text-xl text-gray-600">
+      <p className="mt-4 text-xl  text-gray-600">
         Let's get you back to
         <Link
           to="/"

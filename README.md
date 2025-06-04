@@ -24,8 +24,6 @@ pnpm install
 pnpm dev
 ```
 
-Откроется: [http://localhost:5173](http://localhost:5173)
-
 ### Сборка для продакшена
 
 ```bash

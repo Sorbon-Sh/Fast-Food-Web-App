@@ -1,50 +1,82 @@
-# Dodo pizza web site analog
+# 🍕 Fast Food Web App — Аналог сайта Dodo Pizza
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Интерфейс веб-приложения для онлайн-заказа еды, вдохновлённый дизайном Dodo Pizza. Этот проект демонстрирует современные подходы к разработке UI с помощью React, Vite и Tailwind CSS.
 
-Currently, two official plugins are available:
+## 📦 Технологии
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- **React + TypeScript** — UI библиотека и строгая типизация
+- **Vite** — сверхбыстрый сборщик для разработки
+- **Tailwind CSS** — утилитарный CSS-фреймворк
+- **ESLint + Prettier** — поддержка чистоты кода
+- **pnpm** — менеджер пакетов
 
-## Expanding the ESLint configuration
+## 🚀 Быстрый старт
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+### Установка зависимостей
 
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ["./tsconfig.node.json", "./tsconfig.app.json"],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-});
+```bash
+pnpm install
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+### Запуск в режиме разработки
 
-```js
-// eslint.config.js
-import react from "eslint-plugin-react";
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: "18.3" } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs["jsx-runtime"].rules,
-  },
-});
+```bash
+pnpm dev
 ```
+
+Откроется: [http://localhost:5173](http://localhost:5173)
+
+### Сборка для продакшена
+
+```bash
+pnpm build
+```
+
+### Просмотр продакшн-сборки
+
+```bash
+pnpm preview
+```
+
+## 📁 Структура проекта
+
+```bash
+src/
+├── components/      # Переиспользуемые UI-компоненты (напр. Header, Footer, ProductCard)
+├── pages/           # Основные страницы (Home, Menu и т.д.)
+├── assets/          # Изображения и стили
+├── App.tsx          # Основной компонент приложения
+├── main.tsx         # Точка входа в приложение
+└── ...              # Остальной код
+```
+
+## 🎯 Возможности
+
+- Просмотр товаров (например, пицца, напитки)
+- Удобный интерфейс для выбора еды
+- Интерактивные карточки товаров
+- Современный адаптивный дизайн
+- Подготовлено к масштабированию и интеграции с backend
+
+> **Важно:** регистрация и корзина не реализованы (на текущем этапе проект сосредоточен на интерфейсной части).
+
+## ✅ Скрипты
+
+- `pnpm dev` — запуск проекта в dev-режиме
+- `pnpm build` — сборка проекта
+- `pnpm preview` — предпросмотр собранной версии
+
+## 🧪 ESLint и стиль кода
+
+ESLint и Prettier настроены для соблюдения стиля и качества кода. В проект также встроены рекомендации по настройке `tseslint` и `eslint-plugin-react`.
+
+## 📌 TODO
+
+- [ ] Реализация корзины и логики заказов
+- [ ] Подключение backend-а (например, Supabase, Firebase, Node.js)
+- [ ] Добавление фильтрации и поиска по меню
+- [ ] Аутентификация и личный кабинет пользователя
+
+## 📄 Лицензия
+
+Проект с открытым исходным кодом под лицензией MIT.
